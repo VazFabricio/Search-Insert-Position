@@ -1,11 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        int [] array = {1,3,2,4,5,6,7,8,9};
+        int [] array = {0,2,4,5,6,7,8,9};
         System.out.println(search(array, 3));
         printArray(array);
         shortArray(array);
         System.out.println(" ");
         printArray(array);
+        System.out.println(" ");
+        System.out.println(index(array, 1));
 
 
     }
@@ -16,9 +18,10 @@ public class Main {
                 return i;
             }
         }
+
         return -1;
     }
-    public static int [] shortArray (int [] array){
+    public static void shortArray (int [] array){
         int n = array.length;
         for (int i = 0; i < n; i++){
             int key = array[i];
@@ -31,7 +34,6 @@ public class Main {
             array[j + 1] = key;
 
         }
-        return array;
     }
     static void printArray(int [] array){
         int n = array.length;
@@ -39,6 +41,18 @@ public class Main {
             System.out.print(array[i]+ " ");
         }
 
-
+    }
+    static int index (int [] array, int target){
+        int n = array.length;
+        int index = 0;
+        for ( int i = 0; i<n; i++){
+            if (array[i] < target){
+                index = i + 1;
+            } else {
+                index = i;
+                return index;
+            }
+        }
+        return index;
     }
 }
