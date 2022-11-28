@@ -7,19 +7,27 @@ public class Main {
         System.out.println(" ");
         printArray(array);
         System.out.println(" ");
-        System.out.println(index(array, 1));
+        System.out.println(search(array, 3));
 
 
     }
     public static int search (int [] array, int target){
         int n = array.length;
+        int index = 0;
         for (int i = 0; i<n; i++){
             if (array[i] == target){
                 return i;
             }
         }
-
-        return -1;
+        for ( int i = 0; i<n; i++){
+            if (array[i] < target){
+                index = i + 1;
+            } else {
+                index = i;
+                return index;
+            }
+        }
+        return index;
     }
     public static void shortArray (int [] array){
         int n = array.length;
@@ -41,18 +49,5 @@ public class Main {
             System.out.print(array[i]+ " ");
         }
 
-    }
-    static int index (int [] array, int target){
-        int n = array.length;
-        int index = 0;
-        for ( int i = 0; i<n; i++){
-            if (array[i] < target){
-                index = i + 1;
-            } else {
-                index = i;
-                return index;
-            }
-        }
-        return index;
     }
 }
